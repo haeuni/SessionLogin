@@ -30,29 +30,55 @@
 	</div>	
 	
 	<h3>5개의 값을 입력해 보기 ( 1~10 中 )</h3>
-	<form action="GetMain" method="post">
+	<form name="formSend" action="GetMain" method="post" >
 		값1 / 값2 :  <input type="text" name="mainGop1" id="gop"/>
 					  <input type="text" name="mainGop2" id="gop"/><br/><br/>
 		값3 : 		  <input type="text" name="mainGop3" id="gop"/><br/><br/>
 		값4 / 값5 : <input type="text" name="mainGop4" id="gop"/>
 					  <input type="text" name="mainGop5" id="gop"/>
+				
+		<!-- 합친 문자열을 담아 넘기는 input태그-->		
+		<input  type="hidden"  id="mainGopList" name="mainGopList" />
 		
-			  <!--  		  <input type="text" name="mainGop6" id="gop" 
-			  				style="background-color: #cecece;' color: white; width: 5px; " />	 --> 
-				 	 
-
-		<input type="submit" value="입력"/>
+		<!-- 입력버튼과 / 로그아웃 버튼 -->
+		<input value="입력"  type="button" onclick="doPage()"/>
 		<input type="button" value="로그아웃" onclick="location.href='logout.jsp'" />
 	</form>
 			
 	<script>		
-		/* 	var mergeGop;
-		
-			function input() {
-				var Input = document.getElementById("gop").value;
-				mergeGop = gop;
-		} */
+		function doPage(){
+			 
+			/* 넘겨줄 폼의 이름을 찾아서, 그폼의 값을 찾는다. */
+			/* var sub1 = document.formSend.mainGop1.value; 
+			var sub2 = document.formSend.mainGop2.value;
+			var sub3 = document.formSend.mainGop3.value;
+			var sub4 = document.formSend.mainGop4.value;
+			var sub5 = document.formSend.mainGop5.value; */
 			
+			/* 합칠 문자열을 '/' 으로 구분지어 연결 */
+			/* var subGopResult = sub1.concat("/" + sub2 + "/" + sub3 + "/" + sub4 + "/" + sub5);
+			
+			document.getElementById('mainGopList').value = subGopResult;
+			document.write(document.getElementById('mainGopList').value);
+			
+		    document.formSend.submit();	 */
+		    
+		    /* 폼도 선언할수있다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+		    var frm = document.formSend;
+		    
+		    /* 넘겨줄 폼의 이름을 찾아서, 그폼의 값을 찾는다. */
+		    var sub1 = frm.mainGop1.value; 
+			var sub2 = frm.mainGop2.value;
+			var sub3 = frm.mainGop3.value;
+			var sub4 = frm.mainGop4.value;
+			var sub5 = frm.mainGop5.value;
+			
+			/* 합칠 문자열을 '/' 으로 구분지어 연결 */
+			frm.mainGopList.value = sub1 + "/" + sub2 + "/" + sub3 + "/" + sub4 + "/" + sub5;
+			frm.submit();
+		    
+		}
+
 		<%	
 		if(passName == null)
 		{
@@ -61,8 +87,7 @@
 				document.location.href="loginForm.jsp";	
 		<%
 		}
-		%>
-		
+		%>		
 		
 	</script>
 </body>

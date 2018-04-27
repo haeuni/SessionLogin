@@ -22,12 +22,22 @@ public class GetMain extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int dan1 = Integer.parseInt(request.getParameter("mainGop1"));
-		int dan2 = Integer.parseInt(request.getParameter("mainGop2"));
-		int dan3 = Integer.parseInt(request.getParameter("mainGop3"));		
-		//String dan3 = request.getParameter("mainGop3");
-		int dan4 = Integer.parseInt(request.getParameter("mainGop4"));
-		int dan5 = Integer.parseInt(request.getParameter("mainGop5"));
+//		int dan1 = Integer.parseInt(request.getParameter("mainGop1"));
+//		int dan2 = Integer.parseInt(request.getParameter("mainGop2"));
+//		int dan3 = Integer.parseInt(request.getParameter("mainGop3"));		
+//		//String dan3 = request.getParameter("mainGop3");
+//		int dan4 = Integer.parseInt(request.getParameter("mainGop4"));
+//		int dan5 = Integer.parseInt(request.getParameter("mainGop5"));		
+		
+		//값을 "/"으로 붙여 넘긴 리스트를 받아 split 하여 담기
+		String mainGopList = request.getParameter("mainGopList");
+		String[ ] mainGopListValue = mainGopList.split("/");
+		
+		int dan1 = Integer.parseInt(mainGopListValue[0]);
+		int dan2 = Integer.parseInt(mainGopListValue[1]);
+		int dan3 = Integer.parseInt(mainGopListValue[2]);
+		int dan4 = Integer.parseInt(mainGopListValue[3]);
+		int dan5 = Integer.parseInt(mainGopListValue[4]);		
 		
 		ArrayList<Integer> danList = new ArrayList<Integer>();
 		danList.add(dan1);
@@ -36,6 +46,7 @@ public class GetMain extends HttpServlet {
 		danList.add(dan4);
 		danList.add(dan5);
 		
+		//받아오는 값의 범위가 0보다 작거나 10보다 큰지 확인
 		for(int k=0; k< danList.size(); k++) {
 			
 			if((danList.get(k) >=10 || danList.get(k) < 0 )) {

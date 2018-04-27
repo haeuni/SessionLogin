@@ -2,6 +2,7 @@
 <%@page import="java.util.Set"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="java.util.LinkedHashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -25,7 +26,7 @@
 			<h1>입력받은 단으로 배수 10개구하기</h1>
 <%
 			//-------------------------------------------------------------------map (세번째 값을 이용한 10개의 배수개수 각각의 값을 출력하기)
-			HashMap<String,Object> tenList = (HashMap<String,Object>)request.getAttribute("tenList");
+			HashMap<String,Object> tenList = (LinkedHashMap<String,Object>)request.getAttribute("tenList");
 			
 		
 
