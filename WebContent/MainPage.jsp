@@ -64,17 +64,24 @@
 		    document.formSend.submit();	 */
 		    
 		    /* 폼도 선언할수있다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+		    /* 폼을 선언해줌으로써, 폼안의 객체들의 접근을 가능케한다. */
 		    var frm = document.formSend;
-		    
+		
 		    /* 넘겨줄 폼의 이름을 찾아서, 그폼의 값을 찾는다. */
+		    for(var i=0; i<=5; i++){
+		    	frm.mainGopList.value = frm.mainGop[i].value;
+		    	
+		    }
+		   /*  
 		    var sub1 = frm.mainGop1.value; 
 			var sub2 = frm.mainGop2.value;
 			var sub3 = frm.mainGop3.value;
 			var sub4 = frm.mainGop4.value;
 			var sub5 = frm.mainGop5.value;
+	 		*/		
 			
-			/* 합칠 문자열을 '/' 으로 구분지어 연결 */
-			frm.mainGopList.value = sub1 + "/" + sub2 + "/" + sub3 + "/" + sub4 + "/" + sub5;
+	 		/* 합칠 문자열을 '/' 으로 구분지어 연결 */
+		//	frm.mainGopList.value = sub1 + "/" + sub2 + "/" + sub3 + "/" + sub4 + "/" + sub5;
 			frm.submit();
 		    
 		}
